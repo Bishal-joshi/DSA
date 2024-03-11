@@ -1,5 +1,3 @@
-const a = [1, 2, 3, 4, 5, 6, 7];
-
 function linearSearch(element, array) {
     for (const data of array) {
         if (data === element) {
@@ -9,7 +7,7 @@ function linearSearch(element, array) {
     return -1;
 }
 
-// should be sorted at first
+// array should be sorted
 function binarySearch(element,array){
 
     if(array.length==1){
@@ -21,17 +19,15 @@ function binarySearch(element,array){
 
     let start=array[Math.floor(array.length/2)]<=element?Math.floor(array.length/2):0
     let end=(start==0)?Math.floor(array.length/2):array.length
-    console.log(start,end,Math.floor(array.length/2))
+
     
 
 
    return binarySearch(element,array.slice(start,end))
-
-
 }
 
 function binarySearchV2(element,array,start,end){
-    console.log(start,end,Math.floor(array.length/2))
+
 
     if(start<end){
         let start=array[Math.floor(array.length/2)]<=element?Math.floor(array.length/2):0
@@ -70,13 +66,11 @@ function binarySearchV3(element,array,start,end){
 }
 
 
-console.log(linearSearch(3, a)); // Example usage with element 3 in the array 'a'
 
-// for(let i=0;i<7;i++){
-//  console.log(binarySearchV2(i,a,0,a.length));
-
-// }
-
-console.log(binarySearchV2(20,a,0,a.length))
-console.log(binarySearch(20,a))
-console.log(binarySearchV3(20,a,0,a.length))
+// Use module.exports to export the functions
+module.exports = {
+    linearSearch,
+    binarySearch,
+    binarySearchV2,
+    binarySearchV3
+};
